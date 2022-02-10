@@ -12,7 +12,7 @@ export const Container = styled.View`
 `;
 
 export const CartPricing = styled.Text`
-  padding: 20px;
+  padding: 10px;
 `;
 
 export const CartTotalPrice = styled.Text`

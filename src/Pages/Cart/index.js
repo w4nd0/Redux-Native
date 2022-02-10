@@ -45,6 +45,18 @@ const Cart = () => {
     return formatValue(CartAmount);
   }, [products]);
 
+  const increment = product => {
+    dispatch(CartActions.updateAmountRequest(product.id, product.amount + 1));
+  };
+
+  const decrement = product => {
+    dispatch(CartActions.updateAmountRequest(product.id, product.amount - 1));
+  };
+
+  const removeFromCart = id => {
+    dispatch(CartActions.removeFromCart(id));
+  };
+
   const renderItem = ({item}) => (
     <Product>
       <ProductImage source={{uri: item.image_url}} />
@@ -63,10 +75,13 @@ const Cart = () => {
       </ProductTitleContainer>
 
       <ActionContainer>
-        <ActionButton onPress={() => {}}>
+        <ActionButton onPress={() => increment(item)}>
           <FeatherIcon name="plus" color="#e83f5b" size={16} />
         </ActionButton>
-        <ActionButton onPress={() => {}}>
+        <ActionButton
+          onPress={() =>
+            item.amount > 1 ? decrement(item) : removeFromCart(item.id)
+          }>
           <FeatherIcon name="minus" color="#e83f5b" size={16} />
         </ActionButton>
       </ActionContainer>

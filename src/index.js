@@ -10,10 +10,10 @@ import React from 'react';
 import Routes from './routes';
 import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
-import store from './store'
+import store from './store';
 
 const App = () => (
-  <Provider store={}>
+  <Provider store={store}>
     <StatusBar />
     <Routes />
   </Provider>

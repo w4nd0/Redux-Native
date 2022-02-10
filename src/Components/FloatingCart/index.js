@@ -24,7 +24,7 @@ const FloatingCart = () => {
 
   const cartTotal = useMemo(() => {
     const CartAmount = products.reduce((acc, product) => {
-      const totalPrice = acc + product.price * product.quantity;
+      const totalPrice = acc + product.price * product.amount;
       return totalPrice;
     }, 0);
 
